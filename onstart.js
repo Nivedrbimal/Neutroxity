@@ -9,7 +9,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', set
 
 // ---------- Navigation ----------
 const navList = [
-  {key: "panel-home", url:"/index.html"},
+  {key: "panel-home", url:"/homepanel.html"},
   {key: "panel-math", url:"/mathpanel.html"},
   {key: "panel-physics", url:"/physicspanel.html"},
   {key: "panel-chemistry", url:"/chemistrypanel.html"},
@@ -33,7 +33,7 @@ function switchTopPanel(e) {
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('.menu-btn').forEach(btn => btn.addEventListener('click', switchTopPanel));
   const sidebars = document.querySelectorAll(".sidebar");
-  const toggles = document.querySelectorAll(".toggleSidebarResponsive");
+  const toggles = document.querySelectorAll(".sidebar-toggle-responsive");
   toggles.forEach(toggle => {
     toggle.addEventListener("click", () => sidebars.forEach(sb => sb.classList.toggle("open")));
   });
@@ -73,9 +73,7 @@ window.addEventListener('load', () => {
   setTimeout(() => intro.classList.add('fade-out'), 4000);
   setTimeout(() => {
     intro.remove();
-    header?.classList.remove('hidden'); header?.classList.add('visible');
-    sidebar?.classList.remove('hidden'); sidebar?.classList.add('visible');
-    main?.classList.remove('hidden'); main?.classList.add('visible');
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = 'hidden';
+    window.location.href = "homepanel.html"
   }, 5000);
 });

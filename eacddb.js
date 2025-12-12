@@ -907,7 +907,7 @@ function getId() {
     const pwdContent = document.getElementById('pwdCharacterTypesContent');
 
     const snakeCanvas = document.getElementById("snakeCanvas");
-    const snakeCtx = null;
+    let snakeCtx = null;
     if(snakeCanvas) snakeCtx = snakeCanvas.getContext("2d");
     const snakeScoreHolder = document.getElementById("snakeScore");
     const snakeLeftBtn = document.getElementById("leftSnake");
@@ -917,7 +917,8 @@ function getId() {
     const snakeStartBtn = document.getElementById("startSnakeBtn");
     const snakePauseBtn = document.getElementById("pauseSnakeBtn");
     const snakeSize = Math.floor(window.innerHeight * 0.65);
-    let snakeBox = Math.floor(snakeSize / 25);
+    let snakeBox = null;
+    if (snakeSize) snakeBox = Math.floor(snakeSize / 25);
     let snake, snakeDirection, snakeFood, snakeScore, snakeFoodsEaten;
     let snakeSpecialFood = null;
     let snakeHighScore;
@@ -930,7 +931,7 @@ function getId() {
     let snakeRunning = false;
 
     const jetShooterCanvas = document.getElementById('jetShooterCanvas');
-    const jetShooterCtx = null;
+    let jetShooterCtx = null;
     if(jetShooterCanvas) jetShooterCtx = jetShooterCanvas.getContext("2d");
     const jetShooterScoreHolder = document.getElementById("jetShooterScore");
     const jetShooterShieldHolder = document.getElementById("jetShooterShield");
