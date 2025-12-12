@@ -60,14 +60,14 @@
   <!-- App -->
   <main id="app" class="hidden" role="main" tabindex="-1">
     <!-- HOME -->
-    <section id="panel-home" class="panel visible-panel" aria-labelledby="homeTitle">
+    <section id="panel-home" class="panel" aria-labelledby="homeTitle">
       <div class="home-panel">
         <div class="home-content">
           <h1 id="homeTitle" class="home-title">Make Life Easier</h1>
           <div id="homeText" class="home-text">Math and Science is more than calculations. Have fun with it.</div>
           <div class="quick-links" role="toolbar" aria-label="Quick links">
-            <button class="front-btn" onclick="navTo('panel-games')">Open Games</button>
-            <button class="front-btn" onclick="navTo('panel-utilities')">Open Utilities</button>
+            <button class="front-btn" data-target="panel-games">Open Games</button>
+            <button class="front-btn" data-target="panel-utilities">Open Utilities</button>
           </div>
         </div>
       </div>

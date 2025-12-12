@@ -27,11 +27,12 @@ function switchTopPanel(e) {
   document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
   const btn = document.querySelector(`.menu-btn[data-target="${targetPanelId}"]`);
   if(btn) btn.classList.add('active');
-  const app = document.getElementById('app');
-  if(app) app.focus();
 }
+
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('.menu-btn').forEach(btn => btn.addEventListener('click', switchTopPanel));
+  document.querySelectorAll('.front-btn').forEach(btn => btn.addEventListener('click', switchTopPanel));
+  document.querySelectorAll('.top-link').forEach(btn => btn.addEventListener('click', switchTopPanel));
   const sidebars = document.querySelectorAll(".sidebar");
   const toggles = document.querySelectorAll(".sidebar-toggle-responsive");
   toggles.forEach(toggle => {
@@ -50,30 +51,16 @@ document.addEventListener("DOMContentLoaded", () => {
   if(sidebar && toggle) {
     toggle.addEventListener("click", () => sidebar.classList.toggle("collapsed"));
   }
-  const intro = document.getElementById('intro');
-  const header = document.getElementById('mainHeader');
-  const main = document.getElementById('app');
-  if(!intro) {
-    header?.classList.remove('hidden'); header?.classList.add('visible');
-    sidebar?.classList.remove('hidden'); sidebar?.classList.add('visible');
-    main?.classList.remove('hidden'); main?.classList.add('visible');
-    document.body.style.overflow = 'auto';
-  }
 });
 
 // ---------- INTRO SCREEN ----------
 window.addEventListener('load', () => {
   const intro = document.getElementById('intro');
   if(!intro) return;
-
-  const header = document.getElementById('mainHeader');
-  const sidebar = document.getElementById('sidebar');
-  const main = document.getElementById('app');
-
   setTimeout(() => intro.classList.add('fade-out'), 4000);
   setTimeout(() => {
     intro.remove();
     document.body.style.overflow = 'hidden';
-    window.location.href = "homepanel.html"
+    window.location.href = "homepanel.html";
   }, 5000);
 });
