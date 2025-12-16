@@ -25,6 +25,30 @@ async function signUp() {
     signUpOut.textContent = "Username must be between 3 and 10 characters.";
     return;
   }
+  if (password.length <6 || password.length > 30) {
+    signUpOut.textContent = "Password must be between 6 and 30 characters.";
+    return;
+  }
+  if (!password.includes('!@#$&*-_')) {
+    signUpOut.textContent = "Password must include any of the following characters: \"!@#$&*-_\".";
+    return;
+  }
+  if (!password.includes('ABCDEFGHIJKLMNOPQRSTUVWXYZ')) {
+    signUpOut.textContent = "Password must include a capital letter.";
+    return;
+  }
+  if (!password.includes('abcdefghijklmnopqrstuvwxyz')) {
+    signUpOut.textContent = "Password must include a capital letter.";
+    return;
+  }
+  if (!password.includes('1234567890')) {
+    signUpOut.textContent = "Password must include a number.";
+    return;
+  }
+  if (!password.includes('!@#$&*-_')) {
+    signUpOut.textContent = "Password must include any of the following characters: \"!@#$&*-_\".";
+    return;
+  }
   const email = username + "@neutroxity.com";
   try {
     const result = await auth.createUserWithEmailAndPassword(email, password);
@@ -51,7 +75,7 @@ async function signUp() {
     signUpOut.textContent = '';
   } catch (err) {
     console.error("Sign-up error:", err);
-    signUpOut.textContent = "Unable to create an account, please try again later.";
+    signUpOut.textContent = "Unable to create an account, please try again later. \nError: " + err;
   }
 }
 async function signIn() {
