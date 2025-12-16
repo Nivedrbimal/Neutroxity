@@ -59,7 +59,7 @@ function startApp(user) {
       });
     })
     .catch(err => {
-      if (err) console.error("App Check failed, unidentified domain")
+      if (err) console.error("App Check failed, error: ", err)
     });
 }
 function addUserData(newData) {
