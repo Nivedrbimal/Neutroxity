@@ -103,27 +103,6 @@ async function signOut() {
 function updateColor(varName, color) {
   def.root.style.setProperty(varName, color);
 }
-window.addEventListener('load', () => {
-  ['accent1', 'accent2', 'background1', 'background2', 'accent5', 'accent6'].forEach(key => {
-    const value = localStorage.getItem(key);
-    if (value) {
-      const varName =
-        key === 'accent1' ? '--accent1' :
-        key === 'accent2' ? '--accent2' :
-        key === 'background1' ? '--background1' :
-        key === 'background2' ? '--background2' :
-        key === 'accent5' ? '--accent5' :
-        '--accent6';
-      updateColor(varName, value);
-      const input = document.getElementById(
-        key === 'accent5' ? 'card1Picker' :
-        key === 'accent6' ? 'card2Picker' :
-        key + 'Picker'
-      );
-      if (input) input.value = value;
-    }
-  });
-});
 [def.accent1Picker, def.accent2Picker, def.background1Picker, def.background2Picker, def.card1Picker, def.card2Picker].forEach(picker => {
   picker.addEventListener('input', e => {
     const id = e.target.id;

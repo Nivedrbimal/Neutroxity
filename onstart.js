@@ -9,6 +9,31 @@ function setFavicon() {
 setFavicon();
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setFavicon);
 
+function updateColor(varName, color) {
+  def.root.style.setProperty(varName, color);
+}
+window.addEventListener('load', () => {
+  ['accent1', 'accent2', 'background1', 'background2', 'accent5', 'accent6'].forEach(key => {
+    const value = localStorage.getItem(key);
+    if (value) {
+      const varName =
+        key === 'accent1' ? '--accent1' :
+        key === 'accent2' ? '--accent2' :
+        key === 'background1' ? '--background1' :
+        key === 'background2' ? '--background2' :
+        key === 'accent5' ? '--accent5' :
+        '--accent6';
+      updateColor(varName, value);
+      const input = document.getElementById(
+        key === 'accent5' ? 'card1Picker' :
+        key === 'accent6' ? 'card2Picker' :
+        key + 'Picker'
+      );
+      if (input) input.value = value;
+    }
+  });
+});
+
 // ---------- Navigation ----------
 const navList = [
   {key: "panel-home", url:"https://neutroxity.me/home/"},
