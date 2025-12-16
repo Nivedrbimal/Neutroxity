@@ -80,7 +80,6 @@ function getUserData() {
     })
     .catch(err => console.error("Failed to get data:", err));
 }
-document.body.style.overflow = 'hidden';
 
 // ---------- Supporter ----------
 function wait(ms) {
