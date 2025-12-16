@@ -48,7 +48,7 @@ function startApp(user) {
       fb.db.ref(`users/${user.uid}/test`).set({ message: "Hello!" })
         .then(() => console.log("Data written successfully!"))
         .catch(err => console.error("Write failed:", err));
-        loadElementData();
+        if (window.location.href.indexOf("/chemistry/") > -1)loadElementData();
         if (window.location.href.indexOf("/games/")>-1)def.neutropolisGame.classList.remove('hidden');
       fb.db.ref(`users/${user.uid}/username`).on("value", snapshot => {
         console.log("Username:", snapshot.val());
